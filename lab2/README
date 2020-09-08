@@ -1,0 +1,17 @@
+Important things about this code:
+
+1.) I never tried to flash the code and run it, so I don't know if it's goto work without using the compiler's debugger. But since you said you only wanted to see if your OED could work, my code should be good enough for you to test.
+
+2.) Before you even try the code with the debugger, there are a couple things you need to do before making it work:
+
+    a.) In writeCommand(), uncomment "GPIOPinWrite(GPIOA1_BASE, 0x8, 0);" and "GPIOPinWrite(GPIOA1_BASE, 0x8, 0x8);", and comment "MAP_SPICSEnable(GSPI_BASE);" and "MAP_SPICSDisable(GSPI_BASE);" first. Make sure you have all the connection connected correctly, and the SOP2 jumper is capped on, then run this code with the debugger. Note that this doesn't make the OED light up at all.
+
+    b.) Now, stop the debugging. Comment out the lines you uncommented and uncomment the lines you commented before. Now run the code using debugger again. If everything are setted up properly the OED should light up with shows the animations the homework assignment wanted it to.
+
+
+
+The reason you will need to do this might be because the library have a hard time connecting to OC pin simply using the command "MAP_SPICSDisable(GSPI_BASE);", so explicitly telling the program which line is corresponded to OC pin first will help the library shortcut the identification step, which it wouldn't even pass through before. But that's just my spectulation.
+
+If there are anything you are confused about, or it still doesn't light up the OED, you could message me, although judging from the person I am I might not be replying you as fast as you hope for (but you could still try).
+
+Good Luck! 
